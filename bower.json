@@ -1,0 +1,22 @@
+{
+  "name": "user-mgmt-backbonejs",
+  "description": "User management app using BackboneJS",
+  "main": "index.js",
+  "authors": [
+    "Punit Nathani"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "open-iconic": "^1.1.1",
+    "backbone": "^1.3.3",
+    "jquery": "^3.3.1"
+  }
+}

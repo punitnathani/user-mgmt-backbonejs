@@ -1,0 +1,22 @@
+{
+  "name": "user-mgmt-backbonejs",
+  "version": "1.0.0",
+  "description": "User management app using BackboneJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ./app -a localhost -p 62887 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punitnathani/user-mgmt-backbonejs.git"
+  },
+  "author": "Punit Nathani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/punitnathani/user-mgmt-backbonejs/issues"
+  },
+  "dependencies": {
+    "bower": "^1.8.4",
+    "http-server": "^0.11.1"
+  }
+}
