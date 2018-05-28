@@ -34,7 +34,8 @@
             return this;
         },
         onRemove: function() {
-            if(confirm("Are you sure you want to delete this user?")) {
+            var username = this.model.attributes.first_name + ' ' + this.model.attributes.last_name;
+            if(confirm("Are you sure you want to delete " + username + "?")) {
                 verifyAndRemoveUser(this);
             }
         },
