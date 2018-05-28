@@ -69,9 +69,20 @@ span.oi {
 .user-data-child>span {
     flex: 2;
 }
+.user-data-child>input {
+    flex: 2;
+}
 #user-data-save {
-    align-self: flex-end;
+    background-color: maroon;
+    color: white;
 }
 #user-data-add {
     margin-left: 10px;
+}
+.bbm-button {
+    width: 15%;
+    text-align: center;
+}
+.user-input-error {
+    border: 1px solid red;
 }
