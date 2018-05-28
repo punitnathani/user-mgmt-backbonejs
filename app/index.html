@@ -11,10 +11,42 @@
     <script src="lib/underscore/underscore-min.js"></script>
     <script src="lib/backbone/backbone-min.js"></script>
 
+    <script src="js/constants.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
-
+    <div class="user-data-container">
+        <div class="user-data-bar">
+            <span class="user-action-button oi" data-glyph="pencil" title="Edit User">
+            </span>
+            <span class="user-action-button oi" data-glyph="trash" title="Delete User">
+            </span>
+        </div>
+        <form name="user-data-form" class="user-data-form">
+            <div class="user-data-child">
+                <label>First Name</label>
+                <input id="first_name"
+                    placeholder="Enter first name"/>
+            </div>
+            <div class="user-data-child">
+                <label>Last Name</label>
+                <input id="last_name"
+                    placeholder="Enter last name"/>
+            </div>
+            <div class="user-data-child">
+                <button id="user-data-save" class="octus-icon-button">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="octus-icon-button" id="user-data-add">
+        <span class="oi" data-glyph="plus" title="Add User"></span>
+        <span>Add</span>
+    </div>
+    <script id="userTemplate" type="text/template">
+        
+    </script>
 </body>
 
 </html>
