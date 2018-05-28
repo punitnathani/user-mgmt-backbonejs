@@ -6,15 +6,43 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="lib/open-iconic/font/css/open-iconic.css">
+</head>
+<body>
+    <script id="octus-template" type="text/template">
+        <div class="user-data-bar">
+            <span class="user-action-button oi" data-glyph="pencil" title="Edit User">
+            </span>
+            <span class="user-action-button oi" data-glyph="trash" title="Delete User">
+            </span>
+        </div>
+        <div class="user-data-display">
+            <div class="user-data-child">
+                <label>First Name</label>
+                <span><%= first_name %></span>
+            </div>
+            <div class="user-data-child">
+                <label>Last Name</label>
+                <span><%= last_name %></span>
+            </div>
+        </div>
+    </script>
 
+    <div id="octus-users">
+        <ul id="octus-user-list"></ul>
+    </div>
+
+    <div class="octus-icon-button" id="user-data-add">
+        <span class="oi" data-glyph="plus" title="Add User"></span>
+        <span>Add</span>
+    </div>
+
+    <!-- include javascript files -->
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
     <script src="lib/backbone/backbone-min.js"></script>
 
+    <script src="js/constants.js"></script>
     <script src="js/app.js"></script>
-</head>
-<body>
-
 </body>
 
 </html>
