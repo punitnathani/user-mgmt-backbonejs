@@ -117,6 +117,9 @@
                 userToEdit = {};
             }
             return true;
+        },
+        cancel: function () {
+            userToEdit = {};
         }
     });
     $('#user-data-add').on('click', function(){
