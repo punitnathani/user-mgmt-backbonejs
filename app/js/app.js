@@ -1,7 +1,9 @@
 (function($){
 'use strict';
 
+    var userToEdit = {};
     var UserModel = Backbone.Model.extend({
+        urlRoot: BACKEND_API + '/users',
         defaults: {
             first_name: '',
             last_name: ''
@@ -20,7 +22,8 @@
         className: 'user-data-container',
         template: _.template($('#octus-template').html()),
         events: {
-            'click .remove': 'onRemove'
+            'click .remove': 'onRemove',
+            'click .edit': 'onEdit'
         },
         initialize: function() {
             this.listenTo(this.model, 'destroy', this.remove);
@@ -34,6 +37,9 @@
             if(confirm("Are you sure you want to delete this user?")) {
                 verifyAndRemoveUser(this);
             }
+        },
+        onEdit: function() {
+            editUser(this);
         }
     });
     var UserCollectionView = Backbone.View.extend({
@@ -71,7 +77,17 @@
         template: '#octus-user-modal-template',
         submitEl: '#user-data-save',
         cancelEl: '#user-data-cancel',
-        beforeSubmit: function(val) {
+        onShow: function() {
+            console.log('showing');
+            console.log(userToEdit);
+            if(!_.isEmpty(userToEdit)) {
+                setTimeout(() => {
+                    $('#first_name').val(userToEdit.first_name);
+                    $('#last_name').val(userToEdit.last_name);
+                }, 300);
+            }
+        },
+        beforeSubmit: function() {
             var $firstName = $('#first_name'), $lastName = $('#last_name');
             $firstName.removeClass('user-input-error');
             $lastName.removeClass('user-input-error');
@@ -85,10 +101,21 @@
                 }
                 return false;
             }
-            userListView.onCreate({
-                first_name: $firstName.val(),
-                last_name: $lastName.val()
-            });
+            if(_.isEmpty(userToEdit)) {
+                userListView.onCreate({
+                    first_name: $firstName.val(),
+                    last_name: $lastName.val()
+                });
+            }
+            else {
+                var user = userListView.collection.get(userToEdit.id);
+                user.set({
+                    first_name: $firstName.val(),
+                    last_name: $lastName.val()
+                });
+                user.save();
+                userToEdit = {};
+            }
             return true;
         }
     });
@@ -111,5 +138,12 @@
             var errorModal = new LastItemModal();
             $('#octus-user-modal').html(errorModal.render().el);
         }
+    }
+
+    /* Edit user */
+    var editUser = function(context) {
+        userToEdit = context.model.attributes;
+        var editModal = new Modal();
+        $('#octus-user-modal').html(editModal.render().el);
     }
 })(jQuery);
