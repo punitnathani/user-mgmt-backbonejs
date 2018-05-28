@@ -19,13 +19,21 @@
         tagName: 'div',
         className: 'user-data-container',
         template: _.template($('#octus-template').html()),
+        events: {
+            'click .remove': 'onRemove'
+        },
         initialize: function() {
-
+            this.listenTo(this.model, 'destroy', this.remove);
         },
         render: function() {
             var html = this.template(this.model.toJSON());
             this.$el.html(html);
             return this;
+        },
+        onRemove: function() {
+            if(confirm("Are you sure you want to delete this user?")) {
+                verifyAndRemoveUser(this);
+            }
         }
     });
     var UserCollectionView = Backbone.View.extend({
@@ -60,7 +68,7 @@
 
     /* Modal */
     var Modal = Backbone.Modal.extend({
-        template: '#octus-user-modal',
+        template: '#octus-user-modal-template',
         submitEl: '#user-data-save',
         cancelEl: '#user-data-cancel',
         beforeSubmit: function(val) {
@@ -86,7 +94,22 @@
     });
     $('#user-data-add').on('click', function(){
         var modalView = new Modal();
-        $('#add-user-modal').html(modalView.render().el);
+        $('#octus-user-modal').html(modalView.render().el);
     });
 
+    /* Modal for error on last delete */
+    var LastItemModal = Backbone.Modal.extend({
+        template: '#octus-delete-last',
+        cancelEl: '.bbm-button'
+    });
+
+    var verifyAndRemoveUser = function(context) {
+        if(userListView.collection.length > 1) {
+            context.model.destroy();
+        }
+        else {
+            var errorModal = new LastItemModal();
+            $('#octus-user-modal').html(errorModal.render().el);
+        }
+    }
 })(jQuery);
