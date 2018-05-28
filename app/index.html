@@ -12,7 +12,7 @@
         <div class="user-data-bar">
             <span class="user-action-button oi" data-glyph="pencil" title="Edit User">
             </span>
-            <span class="user-action-button oi" data-glyph="trash" title="Delete User">
+            <span class="user-action-button oi remove" data-glyph="trash" title="Delete User">
             </span>
         </div>
         <div class="user-data-display">
@@ -27,7 +27,7 @@
         </div>
     </script>
 
-    <script id="octus-user-modal" type="text/template">
+    <script id="octus-user-modal-template" type="text/template">
         <div class="bbm-modal__topbar">
             <h3 class="bbm-modal__title">User Management</h3>
         </div>
@@ -49,6 +49,18 @@
         </div>
     </script>
 
+    <script id="octus-delete-last" type="text/template">
+        <div class="bbm-modal__topbar">
+            <h3 class="bbm-modal__title">Error!</h3>
+        </div>
+        <div class="bbm-modal__section">
+            You cannot delete the last user
+        </div>
+        <div class="bbm-modal__bottombar">
+            <a href="#" class="bbm-button">Ok</a>
+        </div>
+    </script>
+
     <div id="octus-users">
     </div>
 
@@ -57,7 +69,7 @@
         <span>Add</span>
     </div>
 
-    <div id="add-user-modal"></div>
+    <div id="octus-user-modal"></div>
 
     <!-- include javascript files -->
     <script src="lib/jquery/dist/jquery.min.js"></script>
