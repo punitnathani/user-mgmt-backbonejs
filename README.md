@@ -21,7 +21,7 @@ Create a user management system:
 5. Visit `localhost://62887` (localhost:octus) to access the app
 
 ### Demo
-To view live demo, visit Plunker at [http://plnkr.co/edit/5DKFi16JknbqwEj6aFd4](http://plnkr.co/edit/5DKFi16JknbqwEj6aFd4)
+To view live demo, visit Plunker at [http://plnkr.co/edit/Nj5atcosy9NAzQjciHFb](http://plnkr.co/edit/Nj5atcosy9NAzQjciHFb)
 
 ### Areas of Improvement
 1. Automated build using `gulp` or `grunt`
