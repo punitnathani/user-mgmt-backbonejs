@@ -27,8 +27,29 @@
         </div>
     </script>
 
+    <script id="octus-user-modal" type="text/template">
+        <div class="bbm-modal__topbar">
+            <h3 class="bbm-modal__title">User Management</h3>
+        </div>
+        <div class="bbm-modal__section">
+            <div class="user-data-display">
+                <div class="user-data-child">
+                    <label>First Name</label>
+                    <input id="first_name" type="text" placeholder="Enter first name"/>
+                </div>
+                <div class="user-data-child">
+                    <label>Last Name</label>
+                    <input id="last_name" type="text" placeholder="Enter last name"/>
+                </div>
+            </div>
+        </div>
+        <div class="bbm-modal__bottombar">
+            <a href="#" class="bbm-button" id="user-data-save">Save</a>
+            <a href="#" class="bbm-button" id="user-data-cancel">Cancel</a>
+        </div>
+    </script>
+
     <div id="octus-users">
-        <ul id="octus-user-list"></ul>
     </div>
 
     <div class="octus-icon-button" id="user-data-add">
@@ -36,10 +57,17 @@
         <span>Add</span>
     </div>
 
+    <div id="add-user-modal"></div>
+
     <!-- include javascript files -->
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
     <script src="lib/backbone/backbone-min.js"></script>
+
+    <!-- backbone modal -->
+    <link rel="stylesheet" href="lib/backbone-modal/backbone.modal.css">
+    <link rel="stylesheet" href="lib/backbone-modal/backbone.modal.theme.css">
+    <script src="lib/backbone-modal/backbone.modal-min.js"></script>
 
     <script src="js/constants.js"></script>
     <script src="js/app.js"></script>
