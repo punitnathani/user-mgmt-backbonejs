@@ -89,9 +89,4 @@
         $('#add-user-modal').html(modalView.render().el);
     });
 
-    $('#user-data-save').on('click', function(){
-        console.log('clickerty');
-    });
-
-
 })(jQuery);
